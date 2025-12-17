@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QRify Logo</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+
+  <div class="app">
+    <header class="app-header">
+      <h1>QRify<span>Logo</span></h1>
+      <p>Create premium QR codes with logos & scanning</p>
+    </header>
+
+    <!-- QR Generator -->
+    <div class="card">
+      <h2>Generate QR Code</h2>
+
+      <input type="text" id="qrText" placeholder="Paste URL or enter text" />
+
+      <label class="toggle">
+        <input type="checkbox" id="enableLogo" />
+        <span class="slider"></span>
+        <span class="label-text">Add logo in center</span>
+      </label>
+
+      <select id="logoSelect" disabled>
+        <option value="">Select logo</option>
+        <option value="instagram">Instagram</option>
+        <option value="whatsapp">WhatsApp</option>
+        <option value="phone">Phone</option>
+        <option value="mail">Mail</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="x">X</option>
+        <option value="youtube">YouTube</option>
+        <option value="other">Other (upload)</option>
+      </select>
+
+      <input type="file" id="customLogo" accept="image/*" disabled />
+
+      <div class="btn-group">
+        <button id="generateBtn" class="primary">Generate</button>
+        <button id="downloadBtn" class="secondary" disabled>Download</button>
+      </div>
+
+      <div id="qrBox"></div>
+    </div>
+
+    <!-- QR Scanner -->
+    <div class="card">
+      <h2>Scan QR Code</h2>
+
+      <div class="btn-group">
+        <button id="startScan" class="primary">Start Scan</button>
+        <button id="stopScan" class="danger" disabled>Stop</button>
+      </div>
+
+      <div id="reader"></div>
+
+      <h3>Scan from Image</h3>
+      <input type="file" id="qrImageInput" accept="image/*" />
+
+      <p id="uploadScanResult" class="result"></p>
+
+      <textarea
+        id="scanResult"
+        placeholder="Scanned data will appear here"
+        readonly
+      ></textarea>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
